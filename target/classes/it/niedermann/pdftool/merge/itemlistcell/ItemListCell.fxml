@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import java.net.*?>
+
+<BorderPane fx:id="cell" xmlns:fx="http://javafx.com/fxml/1">
+	<stylesheets>
+		<URL value="@ListItemCell.css" />
+	</stylesheets>
+	<left>
+		<Label fx:id="filename"></Label>
+	</left>
+	<right>
+		<Button onMouseClicked="#remove"></Button>
+	</right>
+</BorderPane>

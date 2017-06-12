@@ -1,0 +1,13 @@
+#itemDetails {
+	 -fx-max-width: 240px;
+	 -fx-min-width: 240px;
+}
+
+#bottomPane {
+	-fx-padding: 20px;
+}
+
+#progressBar {
+    -fx-max-width: Infinity;
+    -fx-max-height: Infinity;
+}

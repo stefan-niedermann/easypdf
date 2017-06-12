@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+<?import java.net.*?>
+<?import it.niedermann.pdftool.merge.itemdetails.ItemDetails?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" onDragOver="#dragover"
+	onDragDropped="#add">
+	<stylesheets>
+		<URL value="@MergeTab.css" />
+	</stylesheets>
+	<center>
+		<SplitPane>
+			<items>
+				<ListView fx:id="listView"></ListView>
+				<ItemDetails fx:id="itemDetails"></ItemDetails>
+			</items>
+		</SplitPane>
+	</center>
+	<bottom>
+		<BorderPane fx:id="bottomPane">
+			<center>
+				<BorderPane>
+					<center>
+						<ProgressBar progress="0" disable="true" fx:id="progressBar"></ProgressBar>
+					</center>
+					<right>
+						<Button text="Abbrechen" fx:id="cancelButton"
+							onMouseClicked="#cancel" disable="true"></Button>
+					</right>
+				</BorderPane>
+			</center>
+			<right>
+				<Button text="Merge" fx:id="mergeButton" onMouseClicked="#merge"></Button>
+			</right>
+		</BorderPane>
+	</bottom>
+</BorderPane>

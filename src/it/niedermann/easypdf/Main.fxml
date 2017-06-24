@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import it.niedermann.easypdf.merge.MergeTab?>
+
+<MergeTab fx:id="mergeTab" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="it.niedermann.easypdf.Main"></MergeTab>

@@ -1,11 +1,11 @@
-package it.niedermann.pdftool.merge.itemdetails;
+package it.niedermann.easypdf.merge.itemdetails;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import it.niedermann.pdftool.merge.MergeService;
+import it.niedermann.easypdf.merge.MergeService;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

@@ -1,4 +1,4 @@
-package it.niedermann.pdftool.merge;
+package it.niedermann.easypdf.merge;
 
 import java.io.File;
 import java.io.FileOutputStream;

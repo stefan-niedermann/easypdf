@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.Insets?>
 <?import java.net.*?>
-<?import it.niedermann.pdftool.merge.itemdetails.ItemDetails?>
+<?import it.niedermann.easypdf.merge.itemdetails.ItemDetails?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" onDragOver="#dragover"
 	onDragDropped="#add">

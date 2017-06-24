@@ -1,4 +1,4 @@
-package it.niedermann.pdftool.merge;
+package it.niedermann.easypdf.merge;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,8 +6,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import it.niedermann.pdftool.merge.itemdetails.ItemDetails;
-import it.niedermann.pdftool.merge.itemlistcell.ItemListCell;
+import it.niedermann.easypdf.merge.itemdetails.ItemDetails;
+import it.niedermann.easypdf.merge.itemlistcell.ItemListCell;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

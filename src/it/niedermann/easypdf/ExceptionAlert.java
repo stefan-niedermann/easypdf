@@ -1,4 +1,4 @@
-package it.niedermann.pdftool;
+package it.niedermann.easypdf;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;

@@ -1,4 +1,4 @@
-package it.niedermann.pdftool.merge.itemlistcell;
+package it.niedermann.easypdf.merge.itemlistcell;
 
 import java.io.File;
 import java.io.IOException;

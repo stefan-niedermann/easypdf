@@ -20,9 +20,9 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.BorderPane;
 
-public class MergeTab extends Pane {
+public class MergeTab extends BorderPane {
 
 	private static ExecutorService service = Executors.newCachedThreadPool();
 	private CompletableFuture<Void> cf = null;
@@ -48,7 +48,7 @@ public class MergeTab extends Pane {
 		fxmlLoader.setController(this);
 		try {
 			fxmlLoader.load();
-			this.getChildren().add(fxmlLoader.getRoot());
+			this.setCenter(fxmlLoader.getRoot());
 			listView.setItems(listItems);
 			listView.setCellFactory(param -> new ItemListCell(listItems, (itemCell) -> {
 				itemDetails.setDetails(itemCell.getItem());

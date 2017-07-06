@@ -1,6 +1,6 @@
-/home/stefan/eclipse-workspace/pdftool/src/it/niedermann/pdftool/ExceptionAlert.java
-/home/stefan/eclipse-workspace/pdftool/src/it/niedermann/pdftool/Main.java
-/home/stefan/eclipse-workspace/pdftool/src/it/niedermann/pdftool/merge/itemlistcell/ItemListCell.java
-/home/stefan/eclipse-workspace/pdftool/src/it/niedermann/pdftool/merge/MergeTab.java
-/home/stefan/eclipse-workspace/pdftool/src/it/niedermann/pdftool/merge/itemdetails/ItemDetails.java
-/home/stefan/eclipse-workspace/pdftool/src/it/niedermann/pdftool/merge/MergeService.java
+/home/stefan/eclipse-workspace/easypdf/src/it/niedermann/easypdf/merge/MergeTab.java
+/home/stefan/eclipse-workspace/easypdf/src/it/niedermann/easypdf/Main.java
+/home/stefan/eclipse-workspace/easypdf/src/it/niedermann/easypdf/merge/itemdetails/ItemDetails.java
+/home/stefan/eclipse-workspace/easypdf/src/it/niedermann/easypdf/merge/itemlistcell/ItemListCell.java
+/home/stefan/eclipse-workspace/easypdf/src/it/niedermann/easypdf/ExceptionAlert.java
+/home/stefan/eclipse-workspace/easypdf/src/it/niedermann/easypdf/merge/MergeService.java

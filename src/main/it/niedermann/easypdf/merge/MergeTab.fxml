@@ -23,15 +23,14 @@
 	<bottom>
 		<BorderPane fx:id="bottomPane">
 			<center>
-				<BorderPane>
-					<center>
-						<ProgressBar progress="0" disable="true" fx:id="progressBar"></ProgressBar>
-					</center>
-<!-- 					<right> -->
-<!-- 						<Button text="Abbrechen" fx:id="cancelButton" -->
-<!-- 							onMouseClicked="#cancel" disable="true"></Button> -->
-<!-- 					</right> -->
-				</BorderPane>
+				<!-- <BorderPane> -->
+				<!-- <center> -->
+				<ProgressBar progress="0" disable="true" fx:id="progressBar"></ProgressBar>
+				<!-- </center> -->
+				<!-- <right> -->
+				<!-- <Button text="Abbrechen" fx:id="cancelButton" -->
+				<!-- onMouseClicked="#cancel" disable="true"></Button> -->
+				<!-- </right> -->
 			</center>
 			<right>
 				<Button text="Merge" fx:id="mergeButton" onMouseClicked="#merge"></Button>

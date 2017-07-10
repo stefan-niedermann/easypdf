@@ -1,10 +1,10 @@
 package it.niedermann.easypdf.merge.itemlistcell;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.function.Consumer;
 
+import it.niedermann.easypdf.merge.PDFPart;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,16 +17,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.BorderPane;
 
-public class ItemListCell extends ListCell<File> {
+public class ItemListCell extends ListCell<PDFPart> {
 
-	ObservableList<File> listItems = null;
+	ObservableList<PDFPart> listItems = null;
 	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ItemListCell.fxml"));
 	@FXML
 	BorderPane cell;
 	@FXML
 	Label filename;
 
-	public ItemListCell(ObservableList<File> listItems, Consumer<ListCell<File>> clicked) {
+	public ItemListCell(ObservableList<PDFPart> listItems, Consumer<ListCell<PDFPart>> clicked) {
 		this.listItems = listItems;
 		initDragBehavior();
 		setOnMouseClicked((e) -> {
@@ -41,14 +41,14 @@ public class ItemListCell extends ListCell<File> {
 	}
 
 	@Override
-	protected void updateItem(File item, boolean empty) {
+	protected void updateItem(PDFPart item, boolean empty) {
 		super.updateItem(item, empty);
 		if (empty || item == null) {
 			// getChildren().removeAll();
 			setGraphic(null);
 			setText(null);
 		} else {
-			filename.setText(item.getAbsolutePath());
+			filename.setText(item.getFile().getAbsolutePath());
 			setGraphic(cell);
 		}
 	}
@@ -103,8 +103,8 @@ public class ItemListCell extends ListCell<File> {
 			} else if (db.hasString()) {
 				int sourceId = Integer.parseInt(db.getString());
 
-				File draggedItem = listItems.get(sourceId);
-				File currentItem = getItem();
+				PDFPart draggedItem = listItems.get(sourceId);
+				PDFPart currentItem = getItem();
 
 				// getIndex() does always return the id of the first
 				// appearance, even if there is the same file multiple times

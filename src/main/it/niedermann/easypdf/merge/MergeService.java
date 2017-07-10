@@ -25,14 +25,14 @@ public class MergeService {
 		super();
 	}
 
-	public static Runnable getMergeRunnable(List<File> files, File output, Consumer<Integer> progressConsumer) {
+	public static Runnable getMergeRunnable(List<PDFPart> pdfParts, File output, Consumer<Integer> progressConsumer) {
 		return () -> {
 			// Check if output is source and target
 			File outputTmp = null;
-			if (files.contains(output)) {
+			if (pdfParts.contains(output)) {
 				outputTmp = new File(output.getParent() + "/" + output.getName() + ".tmp");
 				if (output.renameTo(outputTmp)) {
-					Collections.replaceAll(files, output, outputTmp);
+					Collections.replaceAll(pdfParts, new PDFPart(output), new PDFPart(outputTmp));
 				} else {
 					throw new IllegalArgumentException(output.getName() + " is source and target and "
 							+ output.getName() + ".tmp already exists.");
@@ -45,8 +45,10 @@ public class MergeService {
 				PdfCopy copy = new PdfCopy(document, outputStream);
 				document.open();
 				Integer finishedFiles = 0;
-				for (File file : files) {
-					PdfReader reader = new PdfReader(file.getAbsolutePath());
+				for (PDFPart pdfPart : pdfParts) {
+					System.out.println("Von: " + pdfPart.getPageFrom());
+					System.out.println("Bis: " + pdfPart.getPageTo());
+					PdfReader reader = new PdfReader(pdfPart.getFile().getAbsolutePath());
 					copy.addDocument(reader);
 					reader.close();
 					progressConsumer.accept(++finishedFiles);
@@ -56,7 +58,7 @@ public class MergeService {
 				copy.close();
 				// cleanup the temporary file if needed
 				if (outputTmp != null && outputTmp.delete()) {
-					Collections.replaceAll(files, outputTmp, output);
+					Collections.replaceAll(pdfParts, new PDFPart(outputTmp), new PDFPart(output));
 				}
 			} catch (InvalidPdfException e) {
 				e.printStackTrace();
@@ -68,8 +70,7 @@ public class MergeService {
 		};
 	}
 
-	public static Runnable getImageOfPage(File file, int page, int width, int height, Consumer<Image> imageConsumer) {
-		return () -> {
+	public static Image getImageOfPage(File file, int page, int width, int height) {
 			Image img = null;
 			try {
 				if (file.exists()) {
@@ -81,13 +82,25 @@ public class MergeService {
 						}
 					}
 					document.close();
-					imageConsumer.accept(img);
 				} else {
 					System.err.println(file.getName() + " File not exists");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		};
+			return img;
+	}
+
+	public static int getPageCount(File file) {
+		PDDocument document;
+		int pageCount = 0;
+		try {
+			document = PDDocument.load(file);
+			pageCount = document.getNumberOfPages();
+			document.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return pageCount;
 	}
 }

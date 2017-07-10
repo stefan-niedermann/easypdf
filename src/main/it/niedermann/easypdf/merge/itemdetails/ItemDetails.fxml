@@ -1,18 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections ?>
 <?import java.net.*?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1">
 	<stylesheets>
 		<URL value="@ItemDetails.css" />
 	</stylesheets>
-	<Label fx:id="filename"></Label>
-	<ImageView fx:id="previewImage" fitHeight="400.0" fitWidth="200.0"
-		preserveRatio="true">
-	</ImageView>
-	<Label fx:id="path"></Label>
-</VBox>
+	<center>
+		<ScrollPane>
+			<content>
+				<VBox>
+					<Label fx:id="filename"></Label>
+					<ImageView fx:id="previewImage" fitHeight="400.0"
+						fitWidth="200.0" preserveRatio="true">
+					</ImageView>
+					<Label fx:id="path"></Label>
+				</VBox>
+			</content>
+		</ScrollPane>
+	</center>
+	<bottom>
+		<HBox>
+			<ComboBox fx:id="pageFrom" promptText="Von">
+			</ComboBox>
+			<ComboBox fx:id="pageTo" promptText="Bis">
+			</ComboBox>
+		</HBox>
+	</bottom>
+</BorderPane>

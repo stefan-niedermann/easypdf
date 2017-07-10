@@ -1,4 +1,4 @@
-VBox {
+HBox, VBox {
 	-fx-padding: 20px;
 	-fx-spacing: 20px;
 }
@@ -7,4 +7,8 @@ VBox {
 	-fx-wrap-text: true;
 	-fx-pref-width: 100.0;
 	-fx-max-width: Infinity;
+}
+
+ComboBox {
+	-fx-pref-width: 100.0;
 }

@@ -21,9 +21,9 @@
 	<stylesheets>
 		<URL value="@ListItemCell.css" />
 	</stylesheets>
-	<left>
+	<center>
 		<Label fx:id="filename"></Label>
-	</left>
+	</center>
 	<right>
 		<Button onMouseClicked="#remove"></Button>
 	</right>

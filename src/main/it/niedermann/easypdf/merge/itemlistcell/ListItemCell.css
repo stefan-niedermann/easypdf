@@ -10,3 +10,8 @@ Button {
 Button:hover {
 	-fx-opacity: .9;
 }
+
+Label {
+	-fx-text-overrun: leading-ellipsis;
+	-fx-text-alignment: left;
+}

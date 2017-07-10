@@ -40,8 +40,8 @@ public class MergeTab extends BorderPane {
 	ItemDetails itemDetails;
 
 	@FXML
-	ListView<File> listView;
-	ObservableList<File> listItems = FXCollections.observableArrayList();
+	ListView<PDFPart> listView;
+	ObservableList<PDFPart> listItems = FXCollections.observableArrayList();
 
 	public MergeTab() {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MergeTab.fxml"));
@@ -61,9 +61,9 @@ public class MergeTab extends BorderPane {
 	@FXML
 	private void merge(MouseEvent event) {
 		mergeButton.setDisable(true);
-		cancelButton.setDisable(false);
+		//cancelButton.setDisable(false);
 		progressBar.setDisable(false);
-		;
+		
 		cf = CompletableFuture.runAsync(MergeService.getMergeRunnable(listItems,
 				new File("/home/stefan/Schreibtisch/output.pdf"), (processed) -> {
 					Platform.runLater(() -> {
@@ -93,7 +93,7 @@ public class MergeTab extends BorderPane {
 	 * in progress.
 	 */
 	private void setNotRunning() {
-		cancelButton.setDisable(true);
+		//cancelButton.setDisable(true);
 		mergeButton.setDisable(false);
 		progressBar.setProgress(0);
 		progressBar.setDisable(true);
@@ -112,8 +112,9 @@ public class MergeTab extends BorderPane {
 		if (db.hasFiles()) {
 			success = true;
 			for (File file : db.getFiles()) {
-				listItems.add(file);
-				itemDetails.setDetails(file);
+				PDFPart pdfPart = new PDFPart(file);
+				listItems.add(pdfPart);
+				itemDetails.setDetails(pdfPart);
 			}
 		}
 		e.setDropCompleted(success);
